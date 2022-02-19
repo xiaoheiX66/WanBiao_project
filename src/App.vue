@@ -1,12 +1,25 @@
 <template>
   <div id="app">
-    <div id="nav">
-      <router-link to="/">Home</router-link> |
-      <router-link to="/about">About</router-link>
-    </div>
-    <router-view/>
+    <h1>组件化todolist</h1>
+     <TodoList></TodoList>  
+    <!-- <ParentSlot></ParentSlot> -->
   </div>
 </template>
+
+<script>
+import Vue from "vue"
+import TodoList from "./components/TodoList.vue"
+import Button from "./components/TodoButton.vue"
+// import ParentSlot from './components/testSlot/ParentSlot.vue'
+Vue.component(Button.name,Button)
+export default{
+  name:"App",
+  components:{
+    TodoList,
+    // ParentSlot
+  }
+}
+</script>
 
 <style lang="scss">
 #app {
